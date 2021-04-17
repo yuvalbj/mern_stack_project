@@ -2,12 +2,16 @@ import Button from '@material-ui/core/Button';
 import {Switch, Route} from 'react-router-dom'
 import EditMovieComp from './EditMovie'
 import AddMovieComp from './AddMovie';
-import AllMoviesComp from './AllMovies'
+import AllMoviesComp from './AllMovies';
+import {useEffect} from 'react';
 
 function MainMoviesComp(props){
 
 
+useEffect(() => {
+  props.history.push("/main/movies/all-movies")
 
+}, [])
 
   const goToAddMovie = () => {
     props.history.push('/main/movies/add-movie')

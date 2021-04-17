@@ -8,7 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
-import subsBL from './subscriptionUtils';
+import subsBL from '../utils/subscriptionUtils';
 
 
 const useStyles = makeStyles({
@@ -46,9 +46,9 @@ function SubPerMemberComp(props) {
     <CardActionArea>
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-        Movies Watched:
+       <h5>Movies Watched:</h5> 
         </Typography>
-       
+       <Button variant="contained" size="small">Subscribe To a New Movie</Button>
         <ul>
           {
             subs.map(sub =>

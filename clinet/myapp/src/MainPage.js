@@ -3,8 +3,15 @@ import {Switch, Route} from 'react-router-dom'
 
 import Button from '@material-ui/core/Button';
 import MainMoviesComp from './movies/MainMovies';
-import MainSubsComp from './members/MainSubs'
+import MainSubsComp from './members/MainSubs';
+import {useEffect} from 'react';
+
 function MainComp(props) {
+
+  useEffect(() => {
+    props.history.push('/main/movies')
+
+  }, [])
 
   const navToAllMovies = ()=> 
 {

@@ -1,6 +1,6 @@
 import { useState , useEffect } from "react";
 import MemberComp from "./MemberComp";
-import membersBL from './membersUtils';
+import membersBL from '../utils/membersUtils';
 
 function AllMembersComp(props){
 

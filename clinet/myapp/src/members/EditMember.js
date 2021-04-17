@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import membersBL from './membersUtils';
+import membersBL from '../utils/membersUtils';
 
 
 function EditMemberComp(props) {

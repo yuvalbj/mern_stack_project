@@ -1,5 +1,5 @@
 import { useState } from "react";
-import moviesBL from './moviesUtils'
+import moviesBL from '../utils/moviesUtils'
 
 
 function AddMovieComp(props) {

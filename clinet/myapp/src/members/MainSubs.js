@@ -3,9 +3,14 @@ import {Switch, Route} from 'react-router-dom'
 import AddMemberComp from './AddMember';
 import AllMembersComp from "./AllMembers";
 import EditMemberComp from './EditMember';
+import {useEffect} from 'react';
 
 function MainSubsComp(props){
 
+  useEffect(() => {
+    props.history.push("/main/subs/all-members")
+  
+  }, [])
 
   const goToAddMovie = () => {
     props.history.push('/main/subs/add-member')

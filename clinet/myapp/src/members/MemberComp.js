@@ -8,9 +8,9 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import membersBL from './membersUtils';
+import membersBL from '../utils/membersUtils';
 import SubPerMember from "../subscriptions/SubPerMember";
-import subBL from '../subscriptions/subscriptionUtils'
+import subBL from '../utils/subscriptionUtils'
 
 const useStyles = makeStyles({
   root: {

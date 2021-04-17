@@ -1,6 +1,6 @@
 import { useState , useEffect } from "react";
 import MovieComp from "./MovieComp";
-import moviesBL from './moviesUtils'
+import moviesBL from '../utils/moviesUtils'
 import Button from '@material-ui/core/Button';
 
 
