@@ -61,7 +61,6 @@ function SubPerMemberComp(props) {
     let newSub = {member_id: memID, movie_id: newMovId, date: newSubDate};
     let result = await subsBL.addSub(newSub);
     alert(result.data);
-    window.location.reload();
   }
 
 
