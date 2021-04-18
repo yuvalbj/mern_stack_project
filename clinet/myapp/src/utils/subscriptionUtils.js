@@ -6,10 +6,10 @@ const getAllSubscription = ()=>
     return axios.get("http://localhost:8000/api/subscriptions");
 }
 
-const getSub = (id)=> 
-{
-    return axios.get("http://localhost:8000/api/subscriptions/" + id);
-}
+// const getSub = (id)=> 
+// {
+//     return axios.get("http://localhost:8000/api/subscriptions/" + id);
+// }
 
 
 const addSub = (newSub)=> 
@@ -76,6 +76,36 @@ const getSubsPerMemberID = async (id) =>
   }
 
 
+  const getMoviesDidNotWatchedForMember = async (id) =>
+{
+  let resp = await axios.get("http://localhost:8000/api/subscriptions");
+  let allSubs = resp.data;
+  
+  let result = [];
+
+  let resp1 = await axios.get("http://localhost:8000/api/movies");
+  let allMovies = resp1.data;
+
+  allSubs.forEach(sub => 
+    {
+      if(sub.member_id === id)
+      {
+        allMovies.forEach(mov => 
+          {
+            if(mov._id !== sub.movie_id)
+            {
+              result.push(mov);
+            }
+          })
+      }
+    })
+    if(result.length === 0)
+    {
+      result = allMovies;
+    }
+   return result;
+  }
+
   const deleteSubPerMovie = async (id) =>
   {
     let resp = await axios.get("http://localhost:8000/api/subscriptions");
@@ -112,4 +142,4 @@ const getSubsPerMemberID = async (id) =>
        return "Deleted";
       }
 
-export default {getAllSubscription, getSubsPerMovieID , getSubsPerMemberID, deleteSubPerMovie,deleteSubPerMember };
+export default {getAllSubscription, getSubsPerMovieID , getSubsPerMemberID, deleteSubPerMovie,deleteSubPerMember ,addSub , getMoviesDidNotWatchedForMember};

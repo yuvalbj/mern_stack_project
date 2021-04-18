@@ -10,7 +10,7 @@ function MainSubsComp(props){
   useEffect(() => {
     props.history.push("/main/subs/all-members")
   
-  }, [])
+  },[props.history])
 
   const goToAddMovie = () => {
     props.history.push('/main/subs/add-member')

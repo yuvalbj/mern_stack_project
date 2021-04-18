@@ -32,15 +32,28 @@ function MovieComp(props) {
 
 
 
-    useEffect( () => {
-      async function fetchData() {
-        let result = await moviesBL.getMovie(movID);
+  //   useEffect( () => {
+  //     async function fetchData() {
+  //       let result = await moviesBL.getMovie(movID);
+  //       setMovie(result.data)
+  //       setMovGen(result.data.genres)
+  //     }
+  //     fetchData();
+  // },[movID])
+
+
+  useEffect(() => {
+    let isMounted = true; 
+    async function fetchData() {
+      let result = await moviesBL.getMovie(movID);
+      if(isMounted){
         setMovie(result.data)
         setMovGen(result.data.genres)
       }
-      fetchData();
-  },[movID])
-
+    }
+    fetchData();
+    return  () => { isMounted = false };
+  }, [movID])
 
 
   const goToEdit = ()=>
@@ -75,6 +88,7 @@ function MovieComp(props) {
         </Typography>
 
         <CardMedia
+        component="img"
         className={classes.media}
         image={movie.image}
         title={movie.name}

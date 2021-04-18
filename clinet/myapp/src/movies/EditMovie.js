@@ -12,18 +12,33 @@ function EditMovieComp(props) {
 
 
 
-  useEffect( () => {
-   async function fetchData() {
-  let result = await moviesBL.getMovie(movID);
-  setMovName(result.data.name);
-  setMovPre(result.data.premiered);
-  setMovImg(result.data.image)
-  setMovGen(result.data.genres)
-   }
-   fetchData();
-  } , [movID])
+  // useEffect( () => {
+  //  async function fetchData() {
+  // let result = await moviesBL.getMovie(movID);
+  // setMovName(result.data.name);
+  // setMovPre(result.data.premiered);
+  // setMovImg(result.data.image)
+  // setMovGen(result.data.genres)
+  //  }
+  //  fetchData();
+  // } , [movID])
 
- 
+  useEffect(() => {
+    let isMounted = true; 
+    async function fetchData() {
+      let result = await moviesBL.getMovie(movID);
+      if(isMounted){
+        setMovName(result.data.name);
+        setMovPre(result.data.premiered);
+        setMovImg(result.data.image)
+        setMovGen(result.data.genres)
+      }
+    }
+    fetchData();
+    return  () => { isMounted = false };
+  }, [movID])
+
+
 
   const UpdateMov = async (e) => 
   {

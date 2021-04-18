@@ -11,7 +11,7 @@ function MainComp(props) {
   useEffect(() => {
     props.history.push('/main/movies')
 
-  }, [])
+  },[props.history])
 
   const navToAllMovies = ()=> 
 {

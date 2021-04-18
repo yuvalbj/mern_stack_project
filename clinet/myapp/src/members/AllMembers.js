@@ -7,14 +7,18 @@ function AllMembersComp(props){
   const [allMembers, SetAllMembers] = useState([]);
 
 
-  useEffect( () => {
+  useEffect(() => {
+    let isMounted = true; 
     async function fetchData() {
-    let result = await membersBL.getAllMembers();
-    SetAllMembers(result.data);
+      let result = await membersBL.getAllMembers();
+      if(isMounted){
+        SetAllMembers(result.data);
+      }
     }
     fetchData();
+    return  () => { isMounted = false };
+    
   }, [])
-
 
   return (
     <div className="App">

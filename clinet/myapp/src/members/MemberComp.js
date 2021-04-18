@@ -28,14 +28,29 @@ function MemberComp(props) {
   const [memID] = useState(props.memId);
   const [member, setMember] = useState({});
 
-  useEffect( () => {
-    async function fetchData() {
+  // useEffect( () => {
+  //   async function fetchData() {
 
-  let result = await membersBL.getMember(memID);
-  setMember(result.data)
+  // let result = await membersBL.getMember(memID);
+  // setMember(result.data)
+  //   }
+  //   fetchData();
+  // }, [memID])
+
+
+  useEffect(() => {
+    let isMounted = true; 
+    async function fetchData() {
+      let result = await membersBL.getMember(memID);
+      if(isMounted){
+        setMember(result.data)
+      }
     }
     fetchData();
+    return  () => { isMounted = false };
   }, [memID])
+
+
 
   const goToEdit = ()=>
   {

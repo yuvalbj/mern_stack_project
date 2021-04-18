@@ -10,13 +10,18 @@ function AllMoviesComp(props){
   const [searchPhrase, setSearchPhrase] = useState('');
 
 
-   useEffect( () => {
-    async function fetchData() {
-      let result = await moviesBL.getAllMovies();
-       SetAllMovies(result.data);
-    }
-    fetchData();
 
+useEffect(() => {
+  let isMounted = true; 
+  async function fetchData() {
+    let result = await moviesBL.getAllMovies();
+    if(isMounted){
+      SetAllMovies(result.data);
+    }
+  }
+  fetchData();
+  return  () => { isMounted = false };
+  
 }, [])
 
 const searchForMovie = async (e) => 

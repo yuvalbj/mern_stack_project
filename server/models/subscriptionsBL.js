@@ -40,10 +40,11 @@ exports.addNewSubscription = function(sub)
 {   
     return new Promise((resolve, reject)=> 
     {
-        let newSub = new Member(
+        let newSub = new Subscription(
             {
                 member_id : sub.member_id,
-                movie_id : sub.movie_id
+                movie_id : sub.movie_id,
+                date: sub.date
 
             });
             

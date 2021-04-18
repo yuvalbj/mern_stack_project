@@ -25,18 +25,20 @@ function SubPerMovieComp(props) {
 
   const [movID] = useState(props.movId);
   const [subs, setSubs] = useState([]);
-  // const [memID, setMemID] = useState('');
 
-  useEffect( () => {
-  async function fetchData() {
-  let result = await subsBL.getSubsPerMovieID(movID);
-  setSubs(result)
-  
 
+  useEffect(() => {
+    let isMounted = true; 
+    async function fetchData() {
+      let result = await subsBL.getSubsPerMovieID(movID);
+      if(isMounted){
+        setSubs(result)
+      }
     }
     fetchData();
+    return  () => { isMounted = false };
+    
   }, [movID])
-
   
   
   return (
@@ -50,9 +52,9 @@ function SubPerMovieComp(props) {
        
         <ul>
           {
-            subs.map(sub =>
+            subs.map((sub) =>
               {
-                return <li key={sub._id}> <Link to={"/main/subs/edit-member/" + sub.memId}>{sub.memName}</Link> &nbsp;
+                return <li key={sub.id}> <Link to={"/main/subs/edit-member/" + sub.memId}> {sub.memName}</Link> &nbsp;
                   {sub.date}</li>
               })
           }

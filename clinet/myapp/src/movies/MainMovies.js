@@ -11,7 +11,7 @@ function MainMoviesComp(props){
 useEffect(() => {
   props.history.push("/main/movies/all-movies")
 
-}, [])
+}, [props.history])
 
   const goToAddMovie = () => {
     props.history.push('/main/movies/add-movie')
