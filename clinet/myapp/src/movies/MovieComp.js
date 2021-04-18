@@ -15,6 +15,7 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 400,
     margin: 10
+
   },
   media: {
     height: 250,
@@ -32,14 +33,6 @@ function MovieComp(props) {
 
 
 
-  //   useEffect( () => {
-  //     async function fetchData() {
-  //       let result = await moviesBL.getMovie(movID);
-  //       setMovie(result.data)
-  //       setMovGen(result.data.genres)
-  //     }
-  //     fetchData();
-  // },[movID])
 
 
   useEffect(() => {
@@ -70,7 +63,7 @@ function MovieComp(props) {
   }
 
   return (
-
+<div className="App">
     <Card className={classes.root}>
      
       <CardContent>
@@ -106,6 +99,7 @@ function MovieComp(props) {
       </Button>
     </CardActions>
   </Card>
+  </div>
   );
 }
 

@@ -11,18 +11,6 @@ function EditMovieComp(props) {
   const [movGen, setMovGen] = useState([]);
 
 
-
-  // useEffect( () => {
-  //  async function fetchData() {
-  // let result = await moviesBL.getMovie(movID);
-  // setMovName(result.data.name);
-  // setMovPre(result.data.premiered);
-  // setMovImg(result.data.image)
-  // setMovGen(result.data.genres)
-  //  }
-  //  fetchData();
-  // } , [movID])
-
   useEffect(() => {
     let isMounted = true; 
     async function fetchData() {

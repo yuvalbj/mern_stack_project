@@ -10,17 +10,7 @@ function EditMemberComp(props) {
   const [memCity, setMemCity] = useState('');
 
 
-  // useEffect( () => {
-  //   async function fetchData() {
-
-  // let result = await membersBL.getMember(memID);
-  // setMemName(result.data.name);
-  // setMemEmail(result.data.email);
-  // setMemCity(result.data.city);
-  // }
-  // fetchData();
-  // })
-
+  
   useEffect(() => {
     let isMounted = true; 
     async function fetchData() {
